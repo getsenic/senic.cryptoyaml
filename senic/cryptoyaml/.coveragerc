@@ -1,0 +1,8 @@
+[run]
+omit = 
+  senic/cryptoyaml/commands.py
+  senic/cryptoyaml/tests/*
+  senic/cryptoyaml/testing.py
+
+[report]
+fail_under = 100

@@ -1,0 +1,4 @@
+include senic/cryptoyaml/.coveragerc
+recursive-include senic/cryptoyaml/tests *
+global-exclude __pycache__
+global-exclude *.py[co]
