@@ -1,6 +1,8 @@
 import click
 from os import path
 
+from . import api
+
 
 @click.group(help='create, read and edit encrypted YAML files')
 def main():

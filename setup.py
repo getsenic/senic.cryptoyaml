@@ -31,7 +31,7 @@ setup(
     ],
     install_requires=[
         'click',
-        'ruamel.yaml',
+        'PyYAML',
         'cryptography',
     ],
     extras_require={
