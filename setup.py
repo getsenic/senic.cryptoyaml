@@ -48,6 +48,7 @@ setup(
             'pytest-cov',
             'pytest-flakes',
             'pytest-pep8',
+            'pytest-sugar',
             'repoze.sphinx.autointerface',
             'setuptools-git',
             'Sphinx',
