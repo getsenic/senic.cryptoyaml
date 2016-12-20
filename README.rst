@@ -39,8 +39,8 @@ Once written, the file can be re-read as long as the original secret is still pr
     >>> 123
 
 
-Commandline Usage
------------------
+Command Line Usage
+------------------
 
 Having an encrypted settings file is neat, but sometimes you might want to take a look at it or manipulate it from the command line instead of programmatically.
 
