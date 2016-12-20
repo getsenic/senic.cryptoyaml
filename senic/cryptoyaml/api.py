@@ -16,17 +16,38 @@ def read_yaml_from_file(filepath):
         open(filepath, 'rb'))
 
 
+def get_key(key=None, keyfile=None):
+    """ returns a key given either its value, a path to it on the filesystem
+    or as last resort it checks the environment variable CRYPTOYAML_SECRET
+    """
+    if key is None:
+        if keyfile is None:
+            key = environ.get('CRYPTOYAML_SECRET')
+            if key is None:
+                raise MissingKeyException(
+                    '''You must either provide a key value,'''
+                    ''' a path to a key or its value via the environment variable '''
+                    ''' CRYPTOYAML_SECRET'''
+                )
+            else:
+                key = key.encode('utf-8')
+        else:
+            key = open(keyfile, 'rb').read()
+    return key
+
+
+class MissingKeyException(Exception):
+
+    def __init__(self, msg):
+        self.msg = msg
+
+
 class CryptoYAML(object):
     """Represents an encrypted YAML file"""
 
     def __init__(self, filepath, key=None, keyfile=None):
         self.filepath = filepath
-        self.key = key
-        if self.key is None:
-            if keyfile is None:
-                self.key = environ.get('CRYPTOYAML_SECRET').encode('utf-8')
-            else:
-                self.key = open(keyfile, 'rb').read()
+        self.key = get_key(key, keyfile)
         assert self.key is not None
         self.fernet = Fernet(self.key)
         self.read()

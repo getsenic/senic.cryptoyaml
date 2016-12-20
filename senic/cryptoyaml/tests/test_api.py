@@ -1,4 +1,5 @@
 import os
+import pytest
 import stat
 
 
@@ -32,3 +33,8 @@ def test_init_from_existing_with_keyfile(api, keyfile_path, datafile_path):
 def test_init_from_existing_with_environment_variable(api, keyenv, datafile_path):
     existing = api.CryptoYAML(datafile_path)
     assert existing.data['bill-to']['family'] == 'Dumars'
+
+
+def test_init_without_key(api, datafile_path):
+    with pytest.raises(api.MissingKeyException):
+        api.CryptoYAML(datafile_path)
