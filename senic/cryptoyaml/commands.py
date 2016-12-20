@@ -12,8 +12,8 @@ def main():
 @click.command(help='generate a new private key on filesystem')
 @click.argument('keyfile')
 def generate_key(keyfile):
-    fs = path.abspath(path.expanduser(keyfile))
-    click.echo('Created new private key at {}'.format(fs))
+    created = api.generate_key(path.abspath(path.expanduser(keyfile)))
+    click.echo('Created new private key at {}'.format(created))
 
 
 @click.command(help='create a new encrypted YAML file from scratch')
