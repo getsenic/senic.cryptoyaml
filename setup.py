@@ -31,6 +31,7 @@ setup(
     author='Senic GmbH',
     author_email='tom@senic.com',
     description='A python library to manage encrypted YAML files.',
+    license='BSD 2-Clause License',
     long_description=LONG,
     classifiers=[
         "Programming Language :: Python",
