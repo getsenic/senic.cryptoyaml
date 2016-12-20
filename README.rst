@@ -16,35 +16,27 @@ Also, while they support both Python 2.x and 3.x this package only targets Pytho
 API Usage
 ---------
 
-Here's a simple example:
+Here's a simple example::
 
-   .. doctest::
-
-        >>> from senic.cryptoyaml import generate_key, CryptoYAML
-        >>> new_key = generate_key('secret')
-        >>> config = Settings('/path/to/settings.yml.aes', keyfile=new_key)
+    >>> from senic.cryptoyaml import generate_key, CryptoYAML
+    >>> new_key = generate_key('secret')
+    >>> config = CryptoYAML('/path/to/settings.yml.aes', keyfile=new_key)
 
 Initially you must generate a key (it uses the `Fernet symmetric encryption <https://cryptography.io/en/latest/fernet/>`_ from the `cryptography <https://cryptography.io/en/latest/>`_ library) and use it to construct an CryptoYAML instance.
 
-That instance then provides a `data` attribute which is initally an empty dictionary that you can fill with arbitrary data, provided, the `PyYAML <http://pyyaml.org/>`_ library can encode it:
+That instance then provides a `data` attribute which is initally an empty dictionary that you can fill with arbitrary data, provided, the `PyYAML <http://pyyaml.org/>`_ library can encode it::
 
-   .. doctest::
-
-        >>> config.data['foo'] = 123
+    >>> config.data['foo'] = 123
 
 Note, however, that the data is only persisted on the filesystem when you explicitly commit it to disk like so::
 
-   .. doctest::
+    >>> config.write()
 
-        >>> config.write()
+Once written, the file can be re-read as long as the original secret is still provided::
 
-Once written, the file can be re-read as long as the original secret is still provided:
-
-   .. doctest::
-
-        >>> reread = Settings('/path/to/settings.yml.aes', keyfile=new_key)
-        >>> reread.data['foo']
-        >>> 123
+    >>> reread = CryptoYAML('/path/to/settings.yml.aes', keyfile=new_key)
+    >>> reread.data['foo']
+    >>> 123
 
 
 Commandline Usage
