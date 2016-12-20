@@ -4,6 +4,14 @@ from os import path
 from . import api
 
 
+def get_context(filepath, key, keyfile):
+    try:
+        return api.CryptoYAML(filepath, api.get_key(key, keyfile))
+    except api.MissingKeyException as exc:
+        click.echo(exc.msg)
+        raise click.Abort()
+
+
 @click.group(help='create, read and edit encrypted YAML files')
 def main():
     pass
@@ -21,7 +29,9 @@ def generate_key(keyfile):
 @click.option('--key', default=None, help='secret key')
 @click.option('--keyfile', default=None, help='path to secret keyfile')
 def create(filepath, key=None, keyfile=None):
-    click.echo('created new file')
+    context = get_context(filepath, key, keyfile)
+    context.write()
+    click.echo('created new file at {}'.format(context.filepath))
 
 
 @click.command(help='decrypt and print the contents of a settings file to stdout')
