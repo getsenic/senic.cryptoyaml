@@ -1,7 +1,27 @@
+import codecs
+import os
 from setuptools import setup
 
 
 name = 'senic.cryptoyaml'
+HERE = os.path.abspath(os.path.dirname(__file__))
+
+
+def read(*parts):
+    """
+    Build an absolute path from *parts* and and return the contents of the
+    resulting file.  Assume UTF-8 encoding.
+    """
+    with codecs.open(os.path.join(HERE, *parts), "rb", "utf-8") as f:
+        return f.read()
+
+
+LONG = (
+    read("README.rst") + "\n\n" +
+    "Release Information\n" +
+    "===================\n\n" +
+    read("CHANGES.rst") + "\n\n"
+)
 
 
 setup(
@@ -11,6 +31,7 @@ setup(
     author='Senic GmbH',
     author_email='tom@senic.com',
     description='A python library to manage encrypted YAML files.',
+    long_description=LONG,
     classifiers=[
         "Programming Language :: Python",
     ],
