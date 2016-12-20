@@ -46,7 +46,7 @@ class CryptoYAML(object):
     """Represents an encrypted YAML file"""
 
     def __init__(self, filepath, key=None, keyfile=None):
-        self.filepath = filepath
+        self.filepath = path.abspath(path.expanduser(filepath))
         self.key = get_key(key, keyfile)
         assert self.key is not None
         self.fernet = Fernet(self.key)
