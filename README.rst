@@ -44,7 +44,7 @@ Command Line Usage
 
 Having an encrypted settings file is neat, but sometimes you might want to take a look at it or manipulate it from the command line instead of programmatically.
 
-For this `cryptoyaml` has three commands for generating a key, creating a new file, reading it and setting individual settings::
+For this ``cryptoyaml`` has three commands for generating a key, creating a new file, reading it and setting individual settings::
 
     # cryptoyaml generate_key mysecret
     Created new private key at /Users/senic/Development/senic.cryptoyaml/mysecret
@@ -61,4 +61,4 @@ Environment variables
 ---------------------
 
 A common practice is to provide the secret key via an environment variable.
-Simply setting `CRYPTOYAML_SECRET` will allow you to omit the key for both API usage and for the command line.
+Simply setting ``CRYPTOYAML_SECRET`` will allow you to omit the key for both API usage and for the command line.
