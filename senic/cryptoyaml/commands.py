@@ -43,6 +43,20 @@ def cat(filepath, key=None, keyfile=None):
     click.echo(context.data)
 
 
+@click.command(help='''Create or modify a setting''')
+@click.argument('filepath')
+@click.argument('name')
+@click.argument('value')
+@click.option('--key', default=None, help='secret key')
+@click.option('--keyfile', default=None, help='path to secret keyfile')
+def set(filepath, name, value, key=None, keyfile=None):
+    context = get_context(filepath, key, keyfile)
+    context.data[name] = value
+    context.write()
+    click.echo('{name} -> {value}'.format(**locals()))
+
+
 main.add_command(generate_key)
 main.add_command(create)
 main.add_command(cat)
+main.add_command(set)
