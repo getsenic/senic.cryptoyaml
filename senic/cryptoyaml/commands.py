@@ -35,8 +35,12 @@ def create(filepath, key=None, keyfile=None):
 
 
 @click.command(help='decrypt and print the contents of a settings file to stdout')
-def cat():
-    click.echo('decrypting file')
+@click.argument('filepath')
+@click.option('--key', default=None, help='secret key')
+@click.option('--keyfile', default=None, help='path to secret keyfile')
+def cat(filepath, key=None, keyfile=None):
+    context = get_context(filepath, key, keyfile)
+    click.echo(context.data)
 
 
 main.add_command(generate_key)
