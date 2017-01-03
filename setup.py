@@ -37,6 +37,7 @@ setup(
         "Programming Language :: Python",
     ],
     packages=[name],
+    namespace_packages=['senic'],
     include_package_data=True,
     package_dir={name: 'senic/cryptoyaml'},
     package_data={
