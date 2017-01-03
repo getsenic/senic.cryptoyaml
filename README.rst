@@ -9,7 +9,7 @@ senic.cryptoyaml
 Another motivation is that even in scenarios where the private key to access those settings is persisted alongside the settings themselves, the advantage would be that it becomes trivial to delete those settings securely: you now only need to destroy the key properly and not worry that you leave sensitive bits and bytes on the storage device.
 
 
-This package is simply a convenience wrapper tailored to that use case. The actual heavy lifting of parsing and writing YAML and encrypting and decrypting it is done by the excellent libraries `PyYAML <http://pyyaml.org>`_ and `cryptography <https://cryptography.io/en/latest/>`_ respectively.
+This package is simply a convenience wrapper tailored to that use case. The actual heavy lifting of parsing and writing YAML and encrypting and decrypting it is done by the excellent libraries `PyYAML <http://pyyaml.org>`__ and `cryptography <https://cryptography.io/en/latest/>`__ respectively.
 Also, while they support both Python 2.x and 3.x this package only targets Python >= 3.5 (because it's 2016).
 
 
@@ -22,9 +22,9 @@ Here's a simple example::
     >>> new_key = generate_key('secret')
     >>> config = CryptoYAML('/path/to/settings.yml.aes', keyfile=new_key)
 
-Initially you must generate a key (it uses the `Fernet symmetric encryption <https://cryptography.io/en/latest/fernet/>`_ from the `cryptography <https://cryptography.io/en/latest/>`_ library) and use it to construct an CryptoYAML instance.
+Initially you must generate a key (it uses the `Fernet symmetric encryption <https://cryptography.io/en/latest/fernet/>`_ from the `cryptography <https://cryptography.io/en/latest/>`__ library) and use it to construct an CryptoYAML instance.
 
-That instance then provides a `data` attribute which is initally an empty dictionary that you can fill with arbitrary data, provided, the `PyYAML <http://pyyaml.org/>`_ library can encode it::
+That instance then provides a `data` attribute which is initally an empty dictionary that you can fill with arbitrary data, provided, the `PyYAML <http://pyyaml.org/>`__ library can encode it::
 
     >>> config.data['foo'] = 123
 
