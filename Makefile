@@ -1,5 +1,5 @@
 # convenience Makefile to set up local development
-python_version = 3.6
+python_version = 3.5
 all: venv/bin/cryptoyaml
 
 tests: venv/bin/py.test
