@@ -1,11 +1,12 @@
 # convenience Makefile to set up local development
+python_version = 3.6
 all: venv/bin/cryptoyaml
 
 tests: venv/bin/py.test
 	@venv/bin/py.test
 
 venv/bin/python venv/bin/pip:
-	python3.5 -m venv venv
+	python$(python_version) -m venv venv
 	venv/bin/pip install --upgrade pip
 
 venv/bin/cryptoyaml venv/bin/py.test venv/bin/devpi: venv/bin/python venv/bin/pip setup.py
