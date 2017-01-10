@@ -61,12 +61,12 @@ setup(
         'development': [
             'devpi-client',
             'docutils',
+            'pyflakes < 1.4.0',
             'flake8',
             'mock',
             'pbr',
             'pdbpp',
             'pep8 < 1.6',
-            'pyflakes',
             'pytest',
             'pytest-cov',
             'pytest-flakes',
