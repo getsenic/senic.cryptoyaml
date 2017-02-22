@@ -60,7 +60,7 @@ setup(
         'development': [
             'devpi-client',
             'docutils',
-            'pyflakes < 1.4.0',
+            'pyflakes',
             'flake8',
             'mock',
             'pbr',
