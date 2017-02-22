@@ -20,4 +20,4 @@ autodoc_member_order = 'bysource'
 # general substitutions
 project = 'senic CryptoYAML'
 copyright = '2016'
-version = release = get_distribution('senic.cryptoyaml').version
+version = release = get_distribution('cryptoyaml').version

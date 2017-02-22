@@ -1,12 +1,12 @@
 .. _index:
 
-***********************
-:mod:`senic.cryptoyaml`
-***********************
+*****************
+:mod:`cryptoyaml`
+*****************
 
 :Author: Senic GmbH
 :Version: |version|
 
-.. module:: senic.cryptoyaml
+.. module:: cryptoyaml
 
 .. include:: ../README.rst

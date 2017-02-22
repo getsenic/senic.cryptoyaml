@@ -1,0 +1,8 @@
+[run]
+omit = 
+  cryptoyaml/commands.py
+  cryptoyaml/tests/*
+  cryptoyaml/testing.py
+
+[report]
+fail_under = 100

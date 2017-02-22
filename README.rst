@@ -4,7 +4,7 @@ senic.cryptoyaml
 .. image:: https://travis-ci.org/getsenic/senic.cryptoyaml.svg?branch=master
     :target: https://travis-ci.org/getsenic/senic.cryptoyaml
 
-`senic.cryptoyaml` is a python library to manage encrypted YAML files, its motivation was to provide an API for applications to read (and write) potentially sensitive configuration settings (i.e. passwords, personal user information) in encrypted form.
+`cryptoyaml` is a python library to manage encrypted YAML files, its motivation was to provide an API for applications to read (and write) potentially sensitive configuration settings (i.e. passwords, personal user information) in encrypted form.
 
 Another motivation is that even in scenarios where the private key to access those settings is persisted alongside the settings themselves, the advantage would be that it becomes trivial to delete those settings securely: you now only need to destroy the key properly and not worry that you leave sensitive bits and bytes on the storage device.
 
@@ -18,7 +18,7 @@ API Usage
 
 Here's a simple example::
 
-    >>> from senic.cryptoyaml import generate_key, CryptoYAML
+    >>> from cryptoyaml import generate_key, CryptoYAML
     >>> new_key = generate_key('secret')
     >>> config = CryptoYAML('/path/to/settings.yml.aes', keyfile=new_key)
 

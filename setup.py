@@ -3,7 +3,7 @@ import os
 from setuptools import setup
 
 
-name = 'senic.cryptoyaml'
+name = 'cryptoyaml'
 HERE = os.path.abspath(os.path.dirname(__file__))
 
 
@@ -37,9 +37,8 @@ setup(
         "Programming Language :: Python",
     ],
     packages=[name],
-    namespace_packages=['senic'],
     include_package_data=True,
-    package_dir={name: 'senic/cryptoyaml'},
+    package_dir={name: 'cryptoyaml'},
     package_data={
         name: [
             '.coveragerc',
@@ -80,8 +79,8 @@ setup(
     },
     entry_points="""
         [console_scripts]
-        cryptoyaml = senic.cryptoyaml.commands:main
+        cryptoyaml = cryptoyaml.commands:main
         [pytest11]
-        cryptoyaml = senic.cryptoyaml.testing
+        cryptoyaml = cryptoyaml.testing
     """,
 )
