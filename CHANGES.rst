@@ -9,9 +9,6 @@ The third digit is only for regressions.
 
 Cosmetic brown bag release...
 
-Changes:
-^^^^^^^^
-
  - fix README markup.
 
  - fix namespace declaration (to allow it to co-exist with other ``senic.*`` packages).
@@ -19,8 +16,5 @@ Changes:
 
 0.1.0 (2016-12-20)
 -------------------
-
-Changes:
-^^^^^^^^
 
 Initial release.
